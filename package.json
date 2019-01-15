@@ -1,0 +1,31 @@
+{
+  "name": "mevnplusleaflet",
+  "version": "1.0.0",
+  "description": "Mongoose, Express, Vue and Node + Leaflet (an open-source JavaScript library for mobile-friendly interactive maps)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint src/js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PiaLyck/MEVNplusLeaflet.git"
+  },
+  "author": "Pia Lyck Festersen",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/PiaLyck/MEVNplusLeaflet/issues"
+  },
+  "homepage": "https://github.com/PiaLyck/MEVNplusLeaflet#readme",
+  "dependencies": {
+    "express": "^4.16.4"
+  },
+  "devDependencies": {
+    "eslint": "^5.12.0",
+    "eslint-config-standard": "^12.0.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-node": "^8.0.1",
+    "eslint-plugin-promise": "^4.0.1",
+    "eslint-plugin-standard": "^4.0.0"
+  }
+}

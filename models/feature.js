@@ -5,7 +5,7 @@ var Schema = mongoose.Schema
 var FeatureSchema = new Schema({
   type: {
     type: String,
-    required: true,
+    required: [true, 'I simply MUST know'],
     default: 'Feature'
   },
   geometry: {
@@ -14,14 +14,19 @@ var FeatureSchema = new Schema({
       required: true,
       default: 'Point'
     },
-    coordinates: [125.6, 10.1]
+    coordinates: {
+      type: [
+        Number
+      ],
+      default: [616683.03, 6350752.74]
+    }
   },
   properties: {
     name: {
       type: String,
       default: 'Dagmarsgade 17 <3',
       required: true,
-      max: 100
+      max: [12, 'Too long man..']
     }
   },
   updated: {
@@ -30,26 +35,19 @@ var FeatureSchema = new Schema({
   }
 })
 
-// Virtual for author's full name
+// Virtual for features coordinates
 FeatureSchema
-  .virtual('name')
+  .virtual('coordinates')
   .get(function () {
-    return this.family_name + ', ' + this.first_name
+    return this.geometry.coordinates
   })
 
-// Virtual for author's lifespan
-FeatureSchema
-  .virtual('lifespan')
-  .get(function () {
-    return (this.date_of_death.getYear() - this.date_of_birth.getYear()).toString()
-  })
-
-// Virtual for author's URL
+// Virtual for features's URL
 FeatureSchema
   .virtual('url')
   .get(function () {
-    return '/catalog/author/' + this._id
+    return '/map/feature/' + this._id
   })
 
-//Export model
-module.exports = mongoose.model('Author', FeatureSchema)
+// Export model
+module.exports = mongoose.model('Feature', FeatureSchema)
